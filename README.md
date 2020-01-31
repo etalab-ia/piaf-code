@@ -5,7 +5,7 @@ question-answers pairs with the help of our [annotation platform](https://github
 
 This annotation platform begins with, as in SQuAD, with a subsample of the French Wikipedia, as described [here](https://piaf.etalab.studio/protocole-fr/).
 
-This repo contains the code used to generate this subsample and to compute lexical and syntactical statistics on the
+This repo contains the code created by our partner [ReciTAL](recital.ai) used to generate this subsample and to compute lexical and syntactical statistics on the
 collected data. All this can be found in the protocol, linked above.
 
 To generate a subsample, such as the one used, please follow these instructions:

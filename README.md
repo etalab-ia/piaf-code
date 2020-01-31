@@ -1,11 +1,21 @@
+# PIAF Data Generation and Analysis
+PIAF (Pour une IA Francophone)  is a French project carried on by [Etalab](etalab.gouv.fr) (the French's government open data task force) in the context of its Lab IA.
+PIAF's goal is to build a natively French SQuAD like Question Answering dataset. We do this by leveraging the community to create
+question-answers pairs with the help of our [annotation platform](https://github.com/etalab/piaf).
 
+This annotation platform begins with, as in SQuAD, with a subsample of the French Wikipedia, as described [here](https://piaf.etalab.studio/protocole-fr/).
+
+This repo contains the code used to generate this subsample and to compute lexical and syntactical statistics on the
+collected data. All this can be found in the protocol, linked above.
+
+To generate a subsample, such as the one used, please follow these instructions:
 
 ### 0. Install requirements 
 Python: 
-* From ```requirements.pyl``` or ```requirements.txt```.
+* ```conda env create -f environment.yml```
 
-spaCY:
-* Install spaCy French model:
+spaCy:
+* Install the spaCy French model:
 ```python -m spacy download fr_core_news_sm```
 
 ### 1. Download a French Wikipedia dump (only page and pagelinks.sql.gz are required)
@@ -16,7 +26,7 @@ For example, the dumps from 2019/09/20 links are:
 
 These dumps are removed periodically, you can find the current dumps at https://dumps.wikimedia.org/frwiki
 
-### 2. Compile and launch the PageRank scorer (najuki's code) ```WikipediaPagerank.java```
+### 2. Compile and launch the PageRank scorer (by [nayuki](https://www.nayuki.io/page/computing-wikipedias-internal-pageranks)) ```WikipediaPagerank.java```
 This will perform 1000 iterations of PageRank and save the output in three files. You will need a recent JDK installed in your machine.
 
 ```shell

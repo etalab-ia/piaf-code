@@ -1,7 +1,7 @@
 /*
  * Computing Wikipedia's internal PageRanks
 
- * Copyright (c) 2017 Project Nayuki. (MIT License)
+ * Copyright (c) 2020 Project Nayuki. (MIT License)
  * https://www.nayuki.io/page/computing-wikipedias-internal-pageranks
  *
  * Adapted by Etalab in the context of the PIAF project

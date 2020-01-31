@@ -1,11 +1,11 @@
 # PIAF Data Generation and Analysis
-PIAF (Pour une IA Francophone)  is a French project carried on by [Etalab](etalab.gouv.fr) (the French's government open data task force) in the context of its Lab IA.
+PIAF (Pour une IA Francophone)  is a French project carried on by [Etalab](https://etalab.gouv.fr) (the French's government open data task force) in the context of its Lab IA.
 PIAF's goal is to build a natively French SQuAD like Question Answering dataset. We do this by leveraging the community to create
 question-answers pairs with the help of our [annotation platform](https://github.com/etalab/piaf).
 
 This annotation platform begins with, as in SQuAD, with a subsample of the French Wikipedia, as described [here](https://piaf.etalab.studio/protocole-fr/).
 
-This repo contains the code created by our partner [ReciTAL](recital.ai) used to generate this subsample and to compute lexical and syntactical statistics on the
+This repo contains the code created by our partner [ReciTAL](https://recital.ai) used to generate this subsample and to compute lexical and syntactical statistics on the
 collected data. All this can be found in the protocol, linked above.
 
 To generate a subsample, such as the one used, please follow these instructions:

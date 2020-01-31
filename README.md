@@ -20,7 +20,7 @@ spaCy:
 
 ### 1. Download a French Wikipedia dump (only page and pagelinks.sql.gz are required)
 
-For example, the dumps from 2019/09/20 links are:
+For example, the dumps from 2020/01/20 links are:
 * https://dumps.wikimedia.org/frwiki/20200120/frwiki-20200120-page.sql.gz
 * https://dumps.wikimedia.org/frwiki/20200120/frwiki-20200120-pagelinks.sql.gz
 

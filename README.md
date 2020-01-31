@@ -29,7 +29,7 @@ These dumps are removed periodically, you can find the current dumps at https://
 ### 2. Compile and launch the PageRank scorer (by [nayuki](https://www.nayuki.io/page/computing-wikipedias-internal-pageranks)) ```WikipediaPagerank.java```
 This will perform 1000 iterations of PageRank and save the output in three files. You will need a recent JDK installed in your machine.
 
-```shell
+```bash
 javac WikipediaPagerank.java
 java -Xmx8G WikipediaPagerank frwiki-20190920-page.sql.gz frwiki-20190920-pagelinks.sql.gz 1000
 ```
@@ -41,14 +41,14 @@ The program outputs three .raw files:
 * ```wikipedia-pagerank-page-id-title.raw```
 
 ### 3. Launch ```dump_topn.py``` to select the top N (here N = 10000) articles based on the computed PageRank score:
-```python
+```bash
 python dump_topn.py 10000 wikipedia-pageranks.raw wikipedia-pagerank-page-id-title.raw output_path_wikipedia-pagerank-title.txt
 ```
 
 The program outputs a single file: ```topN.pkl```. Inside ```wiki-preparation/data``` we share a ```top25k.pkl``` with our top 25k articles from French Wikipedia.
 
 ### 4. Launch ```dump.py``` to query Wikipedia and obtain the actual content of the Wikipedia articles:
-```python
+```bash
 python dump.py topN.pkl
 ```
 
@@ -57,24 +57,27 @@ The program outputs two folders:
 * ```data/Npages```: The content of N Wikipedia articles in WIKI format
 
 ### 5. Launch ```compute_wiki_stats.py``` to calculate the statistics of each article such as text length, paragraph length, and so on.
-```python
+```bash
 python compute_wiki_stats.py --folder_path data/Npages --html_path data/Nhtml --output_dic_fn stats_topN.pkl
 ``` 
 
 The program outputs a single file with the statistics: stats_topN.pkl
 
 ### 6. Launch ```stats_analysis_results.py``` to filter filter the articles into a json file
-```python
+```bash
 python stats_analysis_results.py --pkl_stats_dic_fn stats_topN.pkl --wiki_path data/Npages --html_path Nhtml --output_json_article_fn articles.json --min_paragraphs 5 --min_len_paragraphs 500 --max_len_paragraphs 1000 
 ```
 
 The program outputs the file ```articles.json``` which is a SQuAD compatible JSON file ready to be used by the PIAF Annotation tool.
 
 ### 7. Launch qas-analysis/divergence to compute the syntactic and lexical metrics on the recollected data
-```python
+```bash
 python qas-analysis/divergence.py piaf-annotations_v1.1.json
 ```
 
 This program outputs two PDF files:
 * hits_syntaxic.pdf: with the sytactic analysis of the PIAF dataset
 * lexical_variation_piaf_by_tokens_lemma.pdf: with the lexical analysis
+
+### And now, a beautiful diagram of the whole procedure:
+![piaf_code](https://user-images.githubusercontent.com/1085210/73561370-27478c80-4459-11ea-80cb-7a0dd4655deb.png)

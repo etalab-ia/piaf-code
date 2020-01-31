@@ -59,3 +59,12 @@ python stats_analysis_results.py --pkl_stats_dic_fn stats_topN.pkl --wiki_path d
 ```
 
 The program outputs the file ```articles.json``` which is a SQuAD compatible JSON file ready to be used by the PIAF Annotation tool.
+
+## 7. Launch qas-analysis/divergence to compute the syntactic and lexical metrics on the recollected data
+```python
+python qas-analysis/divergence.py piaf-annotations_v1.1.json
+```
+
+This program outputs two PDF files:
+* hits_syntaxic.pdf: with the sytactic analysis of the PIAF dataset
+* lexical_variation_piaf_by_tokens_lemma.pdf: with the lexical analysis
